@@ -1,3 +1,6 @@
+# detecting if waldo is within an image
+# images sourced from https://github.com/vc1492a/Hey-Waldo
+
 import tensorflow as tf
 from tensorflow import keras
 
@@ -94,7 +97,7 @@ def wheresWaldo():
     model_128 = buildModel(128, 'relu', 128, 2)
 
     # build for large images
-    model_256 = buildModel(256, 'relu', 128, 2)
+    model_256 = buildModel(64, 'relu', 128, 2)
 
 
     print("############################# waldo 64 #####################################")
@@ -134,15 +137,15 @@ def wheresWaldo():
     model_256.fit(
         waldo_images_256,
         validation_data=validation_256,
-        epochs=3
+        epochs=15
     )
 
 
 
 
 
-    model_64.evaluate(validation_64, verbose=2)
-    model_128.evaluate(validation_128, verbose=2)
+    # model_64.evaluate(validation_64, verbose=2)
+    # model_128.evaluate(validation_128, verbose=2)
     model_256.evaluate(validation_256, verbose=2)
 
     # probability_model_64 = tf.keras.Sequential([model_64, tf.keras.layers.Softmax()])
