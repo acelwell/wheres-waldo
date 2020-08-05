@@ -110,40 +110,40 @@ def wheresWaldo():
         epochs=3
     )
 
-    # print("############################# waldo 128 #####################################")
-    # model_128.compile(
-    #     optimizer='adam',
-    #     loss=tf.losses.SparseCategoricalCrossentropy(from_logits=True),
-    #     metrics=['accuracy']
-    # )
-    #
-    # model_128.fit(
-    #     waldo_images_128,
-    #     validation_data=validation_128,
-    #     epochs=3
-    # )
-    #
-    #
-    # print("############################# waldo 256 #####################################")
-    # model_256.compile(
-    #     optimizer='adam',
-    #     loss=tf.losses.SparseCategoricalCrossentropy(from_logits=True),
-    #     metrics=['accuracy']
-    # )
-    #
-    # model_256.fit(
-    #     waldo_images_256,
-    #     validation_data=validation_256,
-    #     epochs=3
-    # )
+    print("############################# waldo 128 #####################################")
+    model_128.compile(
+        optimizer='adam',
+        loss=tf.losses.SparseCategoricalCrossentropy(from_logits=True),
+        metrics=['accuracy']
+    )
+
+    model_128.fit(
+        waldo_images_128,
+        validation_data=validation_128,
+        epochs=3
+    )
+
+
+    print("############################# waldo 256 #####################################")
+    model_256.compile(
+        optimizer='adam',
+        loss=tf.losses.SparseCategoricalCrossentropy(from_logits=True),
+        metrics=['accuracy']
+    )
+
+    model_256.fit(
+        waldo_images_256,
+        validation_data=validation_256,
+        epochs=3
+    )
 
 
 
 
 
     model_64.evaluate(validation_64, verbose=2)
-    # model_128.evaluate(validation_128, verbose=2)
-    # model_256.evaluate(validation_256, verbose=2)
+    model_128.evaluate(validation_128, verbose=2)
+    model_256.evaluate(validation_256, verbose=2)
 
     # probability_model_64 = tf.keras.Sequential([model_64, tf.keras.layers.Softmax()])
     # prediction_64 = probability_model_64.predict(waldo_images_64)
